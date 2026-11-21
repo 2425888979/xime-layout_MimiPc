@@ -4,18 +4,51 @@ metadata:
   platform: android
   config_version: 1
 
+style:
+  color_scheme: dsh_plain
+
+color_schemes:
+  dsh_plain:
+    name: "点缀蓝幽"
+    primary_color: 0x8FA3BF
+    key_bg_color: 0xFFFFFFFF
+    key_bg_color_dark: 0x2A2E35
+    key_text_color: 0x2B3140
+    key_text_color_dark: 0xE6E9EE
+    candidate_text_color: 0x2B3140
+    candidate_text_color_dark: 0xE6E9EE
+    keyboard_background:
+      type: solid
+      color: 0xE7EAF3
+      color_dark: 0x181B20
+
 keyboard:
-  # ─ 中文键盘 ─
+  colors:
+    keyboard_bg_color: 0xE7EAF3
+    keyboard_bg_color_dark: 0x1B1E23
+    key_bg_color: 0xFFFFFFFF
+    key_bg_color_dark: 0x2A2E35
+    special_key_bg_color: 0xE1E6EC
+    special_key_bg_color_dark: 0x30343A
+    candidate_bar_bg_color: 0xE7EAF3
+    candidate_bar_bg_color_dark: 0x1B1E23
+    key_text_color: 0x2B3140
+    key_text_color_dark: 0xE6E9EE
+    candidate_text_color: 0x2B3140
+    candidate_text_color_dark: 0xE6E9EE
+  key:
+    corner_radius: 10
+  shadow: { enabled: true, elevation: 1 }
+
+  # ── 中文 键盘── 
   qwerty:
     layout:
       rows:
         - [q, w, e, r, t, y, u, i, o, p]
         - [a, s, d, f, g, h, j, k, l]
-        - [shift, z, x, c, v, b, n, m, delete]
-        - [mode_change, period, cursor_left, voice,cursor_right, earth, enter]
-
+        - [shift, z, x, c, v, b, n, m, "☭"]
+        - [mode_change, period, cursor_left, spc, cursor_right, earth, enter]
     keys:
-      # ── 第1行 : 字母 ──
       q: { tap: "q", long_press: { values: ["Q"] }, swipe_up: "#" }
       w: { tap: "w", long_press: { values: ["W"] }, swipe_up: "@" }
       e: { tap: "e", long_press: { values: ["E"] }, swipe_up: "*" }
@@ -24,18 +57,17 @@ keyboard:
       y: { tap: "y", long_press: { values: ["Y"] }, swipe_up: "》" }
       u: { tap: "u", long_press: { values: ["U"] }, swipe_up: "（" }
       i: { tap: "i", long_press: { values: ["I"] }, swipe_up: "）" }
-      o: { tap: "o", long_press: { values: ["O"] }, swipe_up: "—" ,swipe_down:  "_" }
-      p: { tap: "p", long_press: { values: ["P"] }, swipe_up: "+",swipe_down:  "-" }
+      o: { tap: "o", long_press: { values: ["O"] }, swipe_up: "—", swipe_down: "_" }
+      p: { tap: "p", long_press: { values: ["P"] }, swipe_up: "+", swipe_down: "-" }
 
-      # ── 第2行 : 字母 ──
       a:
         {
           tap: "a",
           long_press: { values: ["A"] },
-          swipe_up: { action: select_all , label: "▣" },
-          swipe_down: { display: "bubble", action: select_all , label: "▣" }
+          swipe_up: { action: select_all, label: "▣" },
+          swipe_down: { display: bubble, action: select_all, label: "▣" }
         }
-      s: { tap: "s", long_press: { values: ["S"] }, swipe_up: "%"}
+      s: { tap: "s", long_press: { values: ["S"] }, swipe_up: "%" }
       d: { tap: "d", long_press: { values: ["D"] }, swipe_up: "=" }
       f: { tap: "f", long_press: { values: ["F"] }, swipe_up: "、" }
       g: { tap: "g", long_press: { values: ["G"] }, swipe_up: "～" }
@@ -44,70 +76,82 @@ keyboard:
       k: { tap: "k", long_press: { values: ["K"] }, swipe_up: "“" }
       l: { tap: "l", long_press: { values: ["L"] }, swipe_up: "”" }
 
-      # ── 第3行 : 字母 ──
       z:
         {
           tap: "z",
           long_press: { values: ["Z"] },
           swipe_up: { action: undo, label: "↩" },
-          swipe_down: { display: "bubble", action: undo, label: "↩" }
+          swipe_down: { display: bubble, action: undo, label: "↩" }
         }
       x:
         {
           tap: "x",
           long_press: { values: ["X"] },
           swipe_up: { action: cut, label: "✂" },
-          swipe_down: { display: "bubble", action: cut, label: "✂" }
+          swipe_down: { display: bubble, action: cut, label: "✂" }
         }
       c:
         {
           tap: "c",
           long_press: { values: ["C", "℃"] },
           swipe_up: { action: copy, label: "❐" },
-          swipe_down: { display: "bubble", action: copy, label: "❐" }
+          swipe_down: { display: bubble, action: copy, label: "❐" }
         }
       v:
         {
           tap: "v",
           long_press: { values: ["V"] },
           swipe_up: { action: paste, label: "☑" },
-          swipe_down: { display: "bubble", action: paste, label: "☑" }
+          swipe_down: { display: bubble, action: paste, label: "☑" }
         }
-        
       b:
         {
           tap: "b",
           long_press: { values: ["B"] },
           swipe_up: { action: newline, label: "↵" },
-          swipe_down: { display: "bubble", action: newline, label: "↵" }
+          swipe_down: { display: bubble, action: newline, label: "↵" }
         }
       n:
         {
           tap: "n",
           long_press: { values: ["N"] },
           swipe_up: { label: "⊕", action: repeat },
-          swipe_down: { display: "bubble", label: "⊕", action: repeat }
+          swipe_down: { display: bubble, label: "⊕", action: repeat }
         }
-      m: { tap: "m", long_press: { values: ["M"] }, swipe_up:  "？",swipe_down: "！" }
-      # ── 第4行 : 特殊 ──
-      #切面板
-      mode_change: {width:1.8, tap: { action: command, value: mode_change_number }}
-      #句号
+      m: { tap: "m", long_press: { values: ["M"] }, swipe_up: "？", swipe_down: "！" }
+
+      "☭":
+        {
+          width: 1.4,
+          background: 0xE1E6EC,
+          background_dark: 0x30343A,
+          tap: { label: "☭", action: delete },
+          long_press: { values: [ { action: delete } ] }
+        }
+
+      shift: { background: 0xE1E6EC, background_dark: 0x30343A }
+      cursor_left: { background: 0xE1E6EC, background_dark: 0x30343A }
+      cursor_right: { background: 0xE1E6EC, background_dark: 0x30343A }
+      mode_change:
+        { background: 0xE1E6EC, background_dark: 0x30343A,
+          tap: { label: "123", action: command,
+            value: mode_change_number, bubble: false } }
       period: { width: 0.8, tap: { label: "⊙", value: "，" }, swipe_up: "。" }
-      #语音改空格
-      voice:
+
+      # 空格：单击上屏空格，键面 ❖；长按切数字面板
+      spc:
         {
           width: 1.5,
-          tap: { action: space },
-          long_press: { values: [ { action: none } ] },
-          swipe_up: { label: "，", value: "," },
-          swipe_down: { label: "。", value: "." }
+          background: 0xD2E3F5,
+          background_dark: 0x2F4155,
+          tap: { label: "❖", action: space },
+          long_press: { display: bubble, values: [ { label: "符号", action: switch_route, value: symbol } ] }
         }
-      # 语言
-      earth:  { width:0.8, tap: { label: "∞", action: "toggle_ascii" } }
-      
-#分隔线——————————————————————————————————————————————
 
+      earth: { tap: { label: "∞", action: toggle_ascii } }
+      enter:
+        { background: 0xE1E6EC, background_dark: 0x30343A,
+          tap: { action: enter, label: "↵" } }
 
   # ── 英文键盘 ──
   qwerty_en:
@@ -115,33 +159,29 @@ keyboard:
       rows:
         - [q, w, e, r, t, y, u, i, o, p]
         - [a, s, d, f, g, h, j, k, l]
-        - [shift, z, x, c, v, b, n, m, delete]
-        - [mode_change, period, cursor_left, voice,cursor_right, earth, enter]
-
+        - [shift, z, x, c, v, b, n, m, "☭"]
+        - [mode_change, period, cursor_left, ❖, cursor_right, earth, enter]
     keys:
-      # ── 第1行 : 字母 ──
       q: { tap: "q", long_press: { values: ["Q"] }, swipe_up: "#" }
       w: { tap: "w", long_press: { values: ["W"] }, swipe_up: "@" }
       e: { tap: "e", long_press: { values: ["E"] }, swipe_up: "*" }
       r: { tap: "r", long_press: { values: ["R"] }, swipe_up: "/" }
       t: { tap: "t", long_press: { values: ["T"] }, swipe_up: "{" }
       y: { tap: "y", long_press: { values: ["Y"] }, swipe_up: "}" }
-      u: { tap: "u", long_press: { values: ["U"] }, swipe_up: "(" }
-      i: { tap: "i", long_press: { values: ["I"] }, swipe_up: ")" }
-      o: { tap: "o", long_press: { values: ["O"] }, swipe_up: "<",swipe_down: "_" }
+      u: { tap: "u", long_press: { values: ["U"] }, swipe_up: "(", swipe_down: "["  }
+      i: { tap: "i", long_press: { values: ["I"] }, swipe_up: ")", swipe_down: "]" }
+      o: { tap: "o", long_press: { values: ["O"] }, swipe_up: "<", swipe_down: "_" }
       p: { tap: "p", long_press: { values: ["P"] }, swipe_up: ">" }
 
-      # ── 第2行 : 字母 ──
       a:
         {
           tap: "a",
           long_press: { values: ["A"] },
-          swipe_up: { action: select_all , label: "▣" },
-          swipe_down: { display: "bubble", action: select_all , label: "▣" }
+          swipe_up: { action: select_all, label: "▣" },
+          swipe_down: { display: bubble, action: select_all, label: "▣" }
         }
-      s:
-       { tap: "s", long_press: { values: ["S"] }, swipe_up: "&" }
-      d: { tap: "d", long_press: { values: ["D"] }, swipe_up: "≈" }
+      s: { tap: "s", long_press: { values: ["S"] }, swipe_up: "&" }
+      d: { tap: "d", long_press: { values: ["D"] }, swipe_up: "=" }
       f: { tap: "f", long_press: { values: ["F"] }, swipe_up: "\\" }
       g: { tap: "g", long_press: { values: ["G"] }, swipe_up: "~" }
       h: { tap: "h", long_press: { values: ["H"] }, swipe_up: ";" }
@@ -149,79 +189,134 @@ keyboard:
       k: { tap: "k", long_press: { values: ["K"] }, swipe_up: "\"" }
       l: { tap: "l", long_press: { values: ["L"] }, swipe_up: "%" }
 
-      # ── 第3行 : 字母 ──
       z:
         {
           tap: "z",
           long_press: { values: ["Z"] },
           swipe_up: { action: undo, label: "↩" },
-          swipe_down: { display: "bubble", action: undo, label: "↩" }
+          swipe_down: { display: bubble, action: undo, label: "↩" }
         }
       x:
         {
           tap: "x",
           long_press: { values: ["X"] },
           swipe_up: { action: cut, label: "✂" },
-          swipe_down: { display: "bubble", action: cut, label: "✂" }
+          swipe_down: { display: bubble, action: cut, label: "✂" }
         }
       c:
         {
           tap: "c",
           long_press: { values: ["C", "℃"] },
           swipe_up: { action: copy, label: "❐" },
-          swipe_down: { display: "bubble", action: copy, label: "❐" }
+          swipe_down: { display: bubble, action: copy, label: "❐" }
         }
       v:
         {
           tap: "v",
           long_press: { values: ["V"] },
           swipe_up: { action: paste, label: "☑" },
-          swipe_down: { display: "bubble", action: paste, label: "☑" }
+          swipe_down: { display: bubble, action: paste, label: "☑" }
         }
-        
       b:
         {
           tap: "b",
           long_press: { values: ["B"] },
           swipe_up: { action: newline, label: "↵" },
-          swipe_down: { display: "bubble", action: newline, label: "↵" }
+          swipe_down: { display: bubble, action: newline, label: "↵" }
         }
       n:
         {
           tap: "n",
           long_press: { values: ["N"] },
           swipe_up: { label: "⊕", action: repeat },
-          swipe_down: { display: "bubble", label: "⊕", action: repeat }
+          swipe_down: { display: bubble, label: "⊕", action: repeat }
         }
-      m: { tap: "m", long_press: { values: ["M"] }, swipe_up:  "?",swipe_down: "!" }
+      m: { tap: "m", long_press: { values: ["M"] }, swipe_up: "?", swipe_down: "!" }
 
-      # ── 第4行 : 特殊 ──
-      #切面板
-      mode_change: {width:1.8, tap: { action: command, value: mode_change_number }}
-      #句号
+      "☭":
+        {
+          width: 1.4,
+          background: 0xE1E6EC,
+          background_dark: 0x30343A,
+          tap: { label: "☭", action: delete },
+          long_press: { values: [ { action: delete } ] }
+        }
+
+      shift: { background: 0xE1E6EC, background_dark: 0x30343A }
+      cursor_left: { background: 0xE1E6EC, background_dark: 0x30343A }
+      cursor_right: { background: 0xE1E6EC, background_dark: 0x30343A }
+      mode_change:
+        { background: 0xE1E6EC, background_dark: 0x30343A,
+          tap: { label: "123", action: command,
+            value: mode_change_number, bubble: false } }
       period: { width: 0.8, tap: { label: "⊙", value: "," }, swipe_up: "·" }
-      #语音改空格
-      voice:
+
+      # 怪招：英文键面取 id 首字，故 id 径用 ❖
+      "❖":
         {
           width: 1.5,
+          background: 0xD2E3F5,
+          background_dark: 0x2F4155,
           tap: { action: space },
-          long_press: { values: [ { action: none } ] },
-          swipe_up: { label: "，", value: "," },
-          swipe_down: { label: "。", value: "." }
+          long_press: { display: bubble, values: [ { label: "符号", action: switch_route, value: symbol } ] }
         }
-      # 语言
-      earth:  { width:0.8, tap: { label: "∞", action: "toggle_ascii" } }
-#数字符号键盘
+
+      earth: { tap: { label: "∞", action: toggle_ascii } }
+      enter:
+        { background: 0xE1E6EC, background_dark: 0x30343A,
+          tap: { action: enter, label: "↵" } }
+
+  # ── 数字符号面板 ──
   number:
     type: columns
     layout:
       left:
-        - ["+", "-", "*", "/","@"]
+        - ["+", "-", "*", "/", "@"]
         - back
       rows:
         - [1, 2, 3]
         - [4, 5, 6]
         - [7, 8, 9]
-        - [ 0, space_bar,"."]
-      right: [delete, open_symbols, emoji, enter]
-      
+        - [0, "❖", "."]
+      right: ["☭", open_symbols, emoji, "↵"]
+    keys:
+      "+": { background: 0xE1E6EC, background_dark: 0x30343A }
+      "-": { background: 0xE1E6EC, background_dark: 0x30343A }
+      "*": { background: 0xE1E6EC, background_dark: 0x30343A }
+      "/": { background: 0xE1E6EC, background_dark: 0x30343A }
+      "@": { background: 0xE1E6EC, background_dark: 0x30343A }
+      "☭":
+        {
+          background: 0xE1E6EC,
+          background_dark: 0x30343A,
+          tap: { label: "☭", action: delete },
+          long_press: { values: [ { action: delete } ] }
+        }
+      open_symbols:
+        {
+          background: 0xE1E6EC,
+          background_dark: 0x30343A,
+          tap: { label: "☯", action: switch_route, value: symbol }
+        }
+      emoji: { background: 0xE1E6EC, background_dark: 0x30343A }
+      back: { background: 0xE1E6EC, background_dark: 0x30343A }
+      "❖":
+        {
+          background: 0xE1E6EC,
+          background_dark: 0x30343A,
+          tap: { label: "❖", action: space },
+          long_press:
+            { display: bubble,
+              values: [ { label: "返回",
+                action: command,
+                value: mode_change } ] },
+          swipe_up:
+            { action: command, value: mode_change,
+              label: "返回" }
+        }
+      "↵":
+        {
+          background: 0xE1E6EC,
+          background_dark: 0x30343A,
+          tap: { label: "↵", action: enter }
+        }
