@@ -46,7 +46,7 @@ keyboard:
       rows:
         - [q, w, e, r, t, y, u, i, o, p]
         - [a, s, d, f, g, h, j, k, l]
-        - [shift, z, x, c, v, b, n, m, "☭"]
+        - [shift, z, x, c, v, b, n, m, delete]
         - [mode_change, period, cursor_left, spc, cursor_right, earth, enter]
     keys:
       q: { tap: "q", long_press: { values: ["Q"] }, swipe_up: "#" }
@@ -120,13 +120,11 @@ keyboard:
         }
       m: { tap: "m", long_press: { values: ["M"] }, swipe_up: "？", swipe_down: "！" }
 
-      "☭":
+      delete:
         {
           width: 1.4,
           background: 0xE1E6EC,
-          background_dark: 0x30343A,
-          tap: { label: "☭", action: delete },
-          long_press: { values: [ { action: delete } ] }
+          background_dark: 0x30343A
         }
 
       shift: { background: 0xE1E6EC, background_dark: 0x30343A }
@@ -145,7 +143,11 @@ keyboard:
           background: 0xD2E3F5,
           background_dark: 0x2F4155,
           tap: { label: "❖", action: space },
-          long_press: { display: bubble, values: [ { label: "符号", action: switch_route, value: symbol } ] }
+          long_press: { display: bubble, values: [ { label: "符号", action: switch_route, value: symbol } ] },
+          swipe_up: { label: "↑", action: commit, display: bubble, bubble: false },
+          swipe_down: { label: "↓", action: commit, display: bubble, bubble: false },
+          swipe_left: { label: "←", action: commit, display: bubble, bubble: false },
+          swipe_right: { label: "→", action: commit, display: bubble, bubble: false }
         }
 
       earth: { tap: { label: "∞", action: toggle_ascii } }
@@ -159,7 +161,7 @@ keyboard:
       rows:
         - [q, w, e, r, t, y, u, i, o, p]
         - [a, s, d, f, g, h, j, k, l]
-        - [shift, z, x, c, v, b, n, m, "☭"]
+        - [shift, z, x, c, v, b, n, m, delete]
         - [mode_change, period, cursor_left, ❖, cursor_right, earth, enter]
     keys:
       q: { tap: "q", long_press: { values: ["Q"] }, swipe_up: "#" }
@@ -233,13 +235,11 @@ keyboard:
         }
       m: { tap: "m", long_press: { values: ["M"] }, swipe_up: "?", swipe_down: "!" }
 
-      "☭":
+      delete:
         {
           width: 1.4,
           background: 0xE1E6EC,
-          background_dark: 0x30343A,
-          tap: { label: "☭", action: delete },
-          long_press: { values: [ { action: delete } ] }
+          background_dark: 0x30343A
         }
 
       shift: { background: 0xE1E6EC, background_dark: 0x30343A }
@@ -249,7 +249,7 @@ keyboard:
         { background: 0xE1E6EC, background_dark: 0x30343A,
           tap: { label: "123", action: command,
             value: mode_change_number, bubble: false } }
-      period: { width: 0.8, tap: { label: "⊙", value: "," }, swipe_up: "·" }
+      period: { width: 0.8, tap: { label: "⊙", value: "," }, swipe_up: "." }
 
       # 怪招：英文键面取 id 首字，故 id 径用 ❖
       "❖":
@@ -258,7 +258,11 @@ keyboard:
           background: 0xD2E3F5,
           background_dark: 0x2F4155,
           tap: { action: space },
-          long_press: { display: bubble, values: [ { label: "符号", action: switch_route, value: symbol } ] }
+          long_press: { display: bubble, values: [ { label: "符号", action: switch_route, value: symbol } ] },
+          swipe_up: { label: "↑", action: commit, display: bubble, bubble: false },
+          swipe_down: { label: "↓", action: commit, display: bubble, bubble: false },
+          swipe_left: { label: "←", action: commit, display: bubble, bubble: false },
+          swipe_right: { label: "→", action: commit, display: bubble, bubble: false }
         }
 
       earth: { tap: { label: "∞", action: toggle_ascii } }
@@ -278,20 +282,14 @@ keyboard:
         - [4, 5, 6]
         - [7, 8, 9]
         - [0, "❖", "."]
-      right: ["☭", open_symbols, emoji, "↵"]
+      right: [delete, open_symbols, emoji, "↵"]
     keys:
       "+": { background: 0xE1E6EC, background_dark: 0x30343A }
       "-": { background: 0xE1E6EC, background_dark: 0x30343A }
       "*": { background: 0xE1E6EC, background_dark: 0x30343A }
       "/": { background: 0xE1E6EC, background_dark: 0x30343A }
       "@": { background: 0xE1E6EC, background_dark: 0x30343A }
-      "☭":
-        {
-          background: 0xE1E6EC,
-          background_dark: 0x30343A,
-          tap: { label: "☭", action: delete },
-          long_press: { values: [ { action: delete } ] }
-        }
+      delete: { background: 0xE1E6EC, background_dark: 0x30343A }
       open_symbols:
         {
           background: 0xE1E6EC,
